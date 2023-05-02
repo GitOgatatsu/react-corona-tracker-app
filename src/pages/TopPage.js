@@ -5,10 +5,10 @@ import Results from "../components/Results";
 const TopPage = (props) => {
 //	console.log("TopPageのprops: ", props);
 	return (
-		<div>
+		<div className="top-page-container">
 			<Title />
 			<Selector countriesJson={props.countriesJson} setCountry={props.setCountry} getCountryData={props.getCountryData} />
-			<Results />
+			<Results countryData={props.countryData} />
 		</div>
 	);
 };

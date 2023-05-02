@@ -12,7 +12,7 @@ function App() {
 		newConfirmed: "",
 		totalConfirmed: "",
 		newRecovered: "",
-		totalRecoverd: ""
+		totalRecovered: ""
 	});
 
 	const getCountryData = () => {
@@ -24,15 +24,14 @@ function App() {
 					newConfirmed: data[data.length - 1].Confirmed - data[data.length - 2].Confirmed,
 					totalConfirmed: data[data.length - 1].Confirmed,
 					newRecovered: data[data.length - 1].Recovered - data[data.length - 2].Recovered,
-					totalRecoverd: data[data.length - 1].Recovered
+					totalRecovered: data[data.length - 1].Recovered
 				});
 			});
 	};
 
   return (
 		<div>
-			{console.log(countryData)}
-			<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} />
+			<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} />
     </div>
   );
 }
