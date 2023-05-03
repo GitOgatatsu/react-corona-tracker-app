@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import TopPage from "./pages/TopPage";
 import WorldPage from './pages/WorldPage';
@@ -33,17 +33,17 @@ function App() {
 			});
 	};
 
-	const getAllCountriesData = async () => {
-		await fetch("https://monotein-books.vercel.app/api/corona-tracker/summary")
+	useEffect( () => {
+		fetch("https://monotein-books.vercel.app/api/corona-tracker/summary")
 			.then(res => res.json())
 			.then(data => setAllCountriesData(data.Countries));
-	};
+	}, []);
 
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} />} />
-				<Route path="/world" element={<WorldPage allCountriedData={allCountriedData} getAllCountriesData={getAllCountriesData} />} />
+				<Route path="/world" element={<WorldPage allCountriesData={allCountriedData} />} />
 			</Routes>
 		</BrowserRouter>
   );
