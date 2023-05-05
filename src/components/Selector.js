@@ -1,7 +1,7 @@
 //import { useState } from "react";
 //import countriesJson from "../countries.json";
 
-const Selector = (props) => {
+const Selector = ({setCountry, countriesJson}) => {
 //	console.log(countriesJson);
 //	countriesJson.map((country) => {
 //		console.log(country);
@@ -18,15 +18,13 @@ const Selector = (props) => {
 //	console.log("Selectorのprops: ", props);
 	return (
 		<div className="selector-container">
-			<select onChange={(e) => props.setCountry(e.target.value)}>
-				<option>Select A Country</option>
+			<select onChange={(e) => setCountry(e.target.value)}>
 				{
-					props.countriesJson.map((country, index) =>
+					countriesJson.map((country, index) =>
 						<option key={index} value={country.Slug}>{country.Country}</option>
 					)
 				}
 			</select>
-			<button onClick={props.getCountryData}>Get Data</button>
 		</div>
 	);
 };

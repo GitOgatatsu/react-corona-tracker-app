@@ -1,7 +1,7 @@
 //import { useState } from "react";
 
 
-const Card = (props) => {
+const Card = ({allCountriesData}) => {
 
 //	const [allCountriedData, setAllCountriesData] = useState([]);
 
@@ -13,7 +13,7 @@ const Card = (props) => {
 
 	return (
 		<div className="card-container">
-			{props.allCountriesData.map((singleData, index) =>
+			{allCountriesData.map((singleData, index) =>
 				<div key={index} className="card">
 					<h2>{singleData.Country}</h2>
 					<p>新規感染者: {singleData.NewConfirmed.toLocaleString()}</p>
